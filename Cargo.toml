@@ -1,0 +1,14 @@
+[package]
+name = "modelbuilder"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+candle-core = { git = "https://github.com/huggingface/candle.git", version = "0.3.0", package = "candle-core", features = ["cuda"] }
+candle-nn = { git = "https://github.com/huggingface/candle.git", version = "0.3.0" }
+candle-transformers = { git = "https://github.com/huggingface/candle.git", version = "0.3.0" }
+mki = "0.2.3"
+tokio = { version = "1.34.0", features = ["full"] }
+hf-hub = { version = "0.3.2", features = ["tokio"] }
