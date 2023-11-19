@@ -16,7 +16,7 @@ impl ModelBuilder {
         }
     }
 
-    pub fn add_layer<T: 'static + candle_nn::Module>(&mut self, layer: T) -> &mut Self {
+    pub fn add_layer<T: 'static + candle_nn::Module>(mut self, layer: T) -> Self {
         self.layers.push(GenericLayer { layer: Box::new(layer) });
         self
     }

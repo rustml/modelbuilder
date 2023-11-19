@@ -5,16 +5,16 @@ use candle_core::Device::Cpu;
 
 #[test]
 fn test_model_with_builder() -> Result<(), Error> {
-    let mut model_builder = ModelBuilder::new();
-    model_builder.add_layer(Linear::new(
-        Tensor::new(&[[1.0, 2.0], [3.0, 4.0]], &Cpu)?, 
-        Some(Tensor::new(&[0.5, 1.0], &Cpu)?)
-    ));
-    model_builder.add_layer(LayerNorm::new(
-        Tensor::new(1.0, &Cpu)?, 
-        Tensor::new(0.0, &Cpu)?, 
-        1e-5
-    ));
+    let mut model_builder = ModelBuilder::new()
+        .add_layer(Linear::new(
+            Tensor::new(&[[1.0, 2.0], [3.0, 4.0]], &Cpu)?, 
+            Some(Tensor::new(&[0.5, 1.0], &Cpu)?)
+        ))
+        .add_layer(LayerNorm::new(
+            Tensor::new(1.0, &Cpu)?, 
+            Tensor::new(0.0, &Cpu)?, 
+            1e-5
+        ));
 
     let input = Tensor::new(&[[0.5, 1.5]], &Cpu)?;
 
